@@ -1,0 +1,8 @@
+src/node_modules
+*.zip
+*.mp4
+*.m4v
+public
+public/css
+public/js
+vendor/
