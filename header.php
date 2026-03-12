@@ -3,11 +3,14 @@
 
 <head>
   <!-- Google Tag Manager -->
-  <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-  new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-  j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-  'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-  })(window,document,'script','dataLayer','GTM-5N9DSV6');</script>
+  <script>(function (w, d, s, l, i) {
+      w[l] = w[l] || []; w[l].push({
+        'gtm.start':
+          new Date().getTime(), event: 'gtm.js'
+      }); var f = d.getElementsByTagName(s)[0],
+        j = d.createElement(s), dl = l != 'dataLayer' ? '&l=' + l : ''; j.async = true; j.src =
+          'https://www.googletagmanager.com/gtm.js?id=' + i + dl; f.parentNode.insertBefore(j, f);
+    })(window, document, 'script', 'dataLayer', 'GTM-5N9DSV6');</script>
   <!-- End Google Tag Manager -->
   <meta charset="<?php bloginfo('charset'); ?>">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -49,6 +52,10 @@
       --gold: #C9A962;
       --gold-light: #E4D4A8;
 
+      --neon-cyan: #00F0FF;
+      --neon-purple: #A855F7;
+      --neon-green: #22D3EE;
+
       /* Typography */
       --font-display: 'Playfair Display', Georgia, serif;
       --font-body: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
@@ -68,6 +75,13 @@
       --duration-fast: 0.2s;
       --duration-base: 0.4s;
       --duration-slow: 0.8s;
+
+      /*  */
+      --radius-lg: 20px;
+      --transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+
+      /* Fuentes */
+      --font-mono: 'JetBrains Mono', 'Fira Code', monospace;
     }
 
     /* Reset */
@@ -1572,8 +1586,8 @@
 
 <body <?php body_class(); ?>>
   <!-- Google Tag Manager (noscript) -->
-  <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-5N9DSV6"
-  height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+  <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-5N9DSV6" height="0" width="0"
+      style="display:none;visibility:hidden"></iframe></noscript>
   <!-- End Google Tag Manager (noscript) -->
   <!-- Header -->
   <?php

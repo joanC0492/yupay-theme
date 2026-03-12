@@ -1,20 +1,19 @@
 <?php
 /*
-    Template name: Foro de Fundadores
+    Template name: Curso Prompting IA
 */
 get_header();
-
 $page_id = get_queried_object_id();
 
 $hero_cta_link = get_field('hero_cta_link', $page_id);
 $hero_side_image = get_field('hero_side_image', $page_id);
 $hero_side_html = get_field('hero_side_html', $page_id);
 $hero_content_type = get_field('hero_seleccion_img_html', $page_id);
-$speakers_cards = get_field('speakers_cards', $page_id);
+$caracteristicas = get_field('programas_caracteristicas', $page_id);
 
 $data = [
   'hero' => [
-    'section_class' => 'foro-fundadores-hero',
+    'section_class' => 'curso-prompting-ia-hero',
     'breadcrumb_text' => get_field('hero_breadcrumb_text', $page_id),
     'badge_text' => get_field('hero_badge_text', $page_id),
     'title' => get_field('hero_title', $page_id),
@@ -23,28 +22,20 @@ $data = [
     'side_content_type' => in_array($hero_content_type, ['imagen', 'html'], true) ? $hero_content_type : 'html',
     'side_image' => is_array($hero_side_image) ? $hero_side_image : [],
     'side_html' => $hero_side_html ?: '',
+    'caracteristicas' => is_array($caracteristicas) ? $caracteristicas : [],
   ],
-  'speakers' => [
-    'section_class' => 'foro-fundadores-speakers',
-    'eyebrow' => get_field('speakers_eyebrow', $page_id),
-    'title' => get_field('speakers_title', $page_id),
-    'description' => get_field('speakers_description', $page_id),
-    'cards' => is_array($speakers_cards) ? $speakers_cards : [],
-  ],
-];
-
-// Hero Section
+  'program_content' => []
+]; ?>
+<?php
 get_template_part(
   'inc/ui/sections/hero',
   null,
   $data['hero']
 );
 
-// Speakers destacados
 get_template_part(
-  'inc/ui/sections/speakers',
+  'inc/ui/sections/program-content',
   null,
-  $data['speakers']
-);
-
-get_footer();
+  $data['program_content']
+); ?>
+<?php get_footer(); ?>

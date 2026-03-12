@@ -1,0 +1,591 @@
+[
+    {
+        "key": "group_69b0e824ebf00",
+        "title": "Custom Fields – Seminarios Internacionales",
+        "fields": [
+            {
+                "key": "field_69b0e824ef5a5",
+                "label": "Hero",
+                "name": "",
+                "aria-label": "",
+                "type": "tab",
+                "instructions": "",
+                "required": 0,
+                "conditional_logic": false,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "placement": "top",
+                "endpoint": 0,
+                "selected": 0
+            },
+            {
+                "key": "field_69b0e824ef5e4",
+                "label": "Texto breadcrumb",
+                "name": "hero_breadcrumb_text",
+                "aria-label": "",
+                "type": "text",
+                "instructions": "",
+                "required": false,
+                "conditional_logic": false,
+                "wrapper": {
+                    "width": "50",
+                    "class": "",
+                    "id": ""
+                },
+                "default_value": "",
+                "maxlength": "",
+                "placeholder": "",
+                "prepend": "",
+                "append": ""
+            },
+            {
+                "key": "field_69b0e824ef621",
+                "label": "Texto de insignia",
+                "name": "hero_badge_text",
+                "aria-label": "",
+                "type": "text",
+                "instructions": "",
+                "required": false,
+                "conditional_logic": false,
+                "wrapper": {
+                    "width": "50",
+                    "class": "",
+                    "id": ""
+                },
+                "default_value": "",
+                "maxlength": "",
+                "placeholder": "",
+                "prepend": "",
+                "append": ""
+            },
+            {
+                "key": "field_69b0e824ef660",
+                "label": "Título",
+                "name": "hero_title",
+                "aria-label": "",
+                "type": "text",
+                "instructions": "",
+                "required": false,
+                "conditional_logic": false,
+                "wrapper": {
+                    "width": "50",
+                    "class": "",
+                    "id": ""
+                },
+                "default_value": "",
+                "maxlength": "",
+                "placeholder": "",
+                "prepend": "",
+                "append": ""
+            },
+            {
+                "key": "field_69b0e824ef69f",
+                "label": "Descripción",
+                "name": "hero_description",
+                "aria-label": "",
+                "type": "textarea",
+                "instructions": "",
+                "required": false,
+                "conditional_logic": false,
+                "wrapper": {
+                    "width": "49",
+                    "class": "",
+                    "id": ""
+                },
+                "default_value": "",
+                "new_lines": "",
+                "maxlength": "",
+                "placeholder": "",
+                "rows": ""
+            },
+            {
+                "key": "field_69b0e824ef6dc",
+                "label": "Enlace del botón",
+                "name": "hero_cta_link",
+                "aria-label": "",
+                "type": "link",
+                "instructions": "",
+                "required": false,
+                "conditional_logic": false,
+                "wrapper": {
+                    "width": "25",
+                    "class": "",
+                    "id": ""
+                },
+                "return_format": "array"
+            },
+            {
+                "key": "field_69b0e824ef71a",
+                "label": "Tipo de contenido",
+                "name": "hero_seleccion_img_html",
+                "aria-label": "",
+                "type": "select",
+                "instructions": "",
+                "required": false,
+                "conditional_logic": false,
+                "wrapper": {
+                    "width": "37.5",
+                    "class": "",
+                    "id": ""
+                },
+                "choices": {
+                    "imagen": "Imagen",
+                    "html": "HTML"
+                },
+                "multiple": 0,
+                "allow_null": 0,
+                "default_value": false,
+                "ui": 0,
+                "ajax": 0,
+                "placeholder": "",
+                "return_format": "value"
+            },
+            {
+                "key": "field_69b0e824ef757",
+                "label": "Imagen lado derecho",
+                "name": "hero_side_image",
+                "aria-label": "",
+                "type": "image",
+                "instructions": "",
+                "required": 0,
+                "conditional_logic": [
+                    [
+                        {
+                            "field": "field_69b0e824ef71a",
+                            "operator": "==",
+                            "value": "imagen"
+                        }
+                    ]
+                ],
+                "wrapper": {
+                    "width": "37.5",
+                    "class": "",
+                    "id": ""
+                },
+                "return_format": "array",
+                "library": "all",
+                "min_width": "",
+                "min_height": "",
+                "min_size": "",
+                "max_width": "",
+                "max_height": "",
+                "max_size": "",
+                "mime_types": "",
+                "allow_in_bindings": 1,
+                "preview_size": "medium"
+            },
+            {
+                "key": "field_69b0e824ef794",
+                "label": "Contenido HTML lado derecho",
+                "name": "hero_side_html",
+                "aria-label": "",
+                "type": "wysiwyg",
+                "instructions": "",
+                "required": 0,
+                "conditional_logic": [
+                    [
+                        {
+                            "field": "field_69b0e824ef71a",
+                            "operator": "==",
+                            "value": "html"
+                        }
+                    ]
+                ],
+                "wrapper": {
+                    "width": "37.5",
+                    "class": "",
+                    "id": ""
+                },
+                "default_value": "",
+                "allow_in_bindings": 1,
+                "tabs": "all",
+                "toolbar": "full",
+                "media_upload": 1,
+                "delay": 0
+            },
+            {
+                "key": "field_seminars_tab",
+                "label": "Seminarios",
+                "name": "",
+                "aria-label": "",
+                "type": "tab",
+                "instructions": "",
+                "required": 0,
+                "conditional_logic": false,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "placement": "top",
+                "endpoint": 0,
+                "selected": 0
+            },
+            {
+                "key": "field_seminars_badge",
+                "label": "Texto de insignia",
+                "name": "seminars_badge_text",
+                "aria-label": "",
+                "type": "text",
+                "instructions": "Ejemplo: Programación 2025",
+                "required": false,
+                "conditional_logic": false,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "default_value": "",
+                "maxlength": "",
+                "placeholder": "",
+                "prepend": "",
+                "append": ""
+            },
+            {
+                "key": "field_seminars_title",
+                "label": "Título de sección",
+                "name": "seminars_title",
+                "aria-label": "",
+                "type": "text",
+                "instructions": "",
+                "required": false,
+                "conditional_logic": false,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "default_value": "",
+                "maxlength": "",
+                "placeholder": "",
+                "prepend": "",
+                "append": ""
+            },
+            {
+                "key": "field_seminars_description",
+                "label": "Descripción de sección",
+                "name": "seminars_description",
+                "aria-label": "",
+                "type": "textarea",
+                "instructions": "",
+                "required": false,
+                "conditional_logic": false,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "default_value": "",
+                "new_lines": "",
+                "maxlength": "",
+                "placeholder": "",
+                "rows": ""
+            },
+            {
+                "key": "field_seminars_items",
+                "label": "Listado de seminarios",
+                "name": "seminars_items",
+                "aria-label": "",
+                "type": "repeater",
+                "instructions": "",
+                "required": false,
+                "conditional_logic": false,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "layout": "block",
+                "button_label": "Agregar seminario",
+                "collapsed": "seminar_title",
+                "min": 0,
+                "max": 0,
+                "rows_per_page": 20,
+                "sub_fields": [
+                    {
+                        "key": "field_seminar_band",
+                        "label": "Texto banda superior",
+                        "name": "seminar_band_text",
+                        "aria-label": "",
+                        "type": "text",
+                        "instructions": "Ejemplo: Seminario Internacional 1",
+                        "required": false,
+                        "conditional_logic": false,
+                        "wrapper": {
+                            "width": "",
+                            "class": "",
+                            "id": ""
+                        },
+                        "default_value": "",
+                        "maxlength": "",
+                        "placeholder": "",
+                        "prepend": "",
+                        "append": "",
+                        "parent_repeater": "field_seminars_items"
+                    },
+                    {
+                        "key": "field_seminar_title",
+                        "label": "Título del seminario",
+                        "name": "seminar_title",
+                        "aria-label": "",
+                        "type": "text",
+                        "instructions": "",
+                        "required": false,
+                        "conditional_logic": false,
+                        "wrapper": {
+                            "width": "",
+                            "class": "",
+                            "id": ""
+                        },
+                        "default_value": "",
+                        "maxlength": "",
+                        "placeholder": "",
+                        "prepend": "",
+                        "append": "",
+                        "parent_repeater": "field_seminars_items"
+                    },
+                    {
+                        "key": "field_speaker_initials",
+                        "label": "Imagen del ponente",
+                        "name": "speaker_image",
+                        "aria-label": "",
+                        "type": "image",
+                        "instructions": "",
+                        "required": 0,
+                        "conditional_logic": 0,
+                        "wrapper": {
+                            "width": "",
+                            "class": "",
+                            "id": ""
+                        },
+                        "return_format": "array",
+                        "library": "all",
+                        "min_width": "",
+                        "min_height": "",
+                        "min_size": "",
+                        "max_width": "",
+                        "max_height": "",
+                        "max_size": "",
+                        "mime_types": "",
+                        "allow_in_bindings": 1,
+                        "preview_size": "thumbnail",
+                        "parent_repeater": "field_seminars_items"
+                    },
+                    {
+                        "key": "field_speaker_name",
+                        "label": "Nombre del ponente",
+                        "name": "speaker_name",
+                        "aria-label": "",
+                        "type": "text",
+                        "instructions": "",
+                        "required": false,
+                        "conditional_logic": false,
+                        "wrapper": {
+                            "width": "",
+                            "class": "",
+                            "id": ""
+                        },
+                        "default_value": "",
+                        "maxlength": "",
+                        "placeholder": "",
+                        "prepend": "",
+                        "append": "",
+                        "parent_repeater": "field_seminars_items"
+                    },
+                    {
+                        "key": "field_speaker_bio",
+                        "label": "Biografía del ponente",
+                        "name": "speaker_bio",
+                        "aria-label": "",
+                        "type": "textarea",
+                        "instructions": "",
+                        "required": false,
+                        "conditional_logic": false,
+                        "wrapper": {
+                            "width": "",
+                            "class": "",
+                            "id": ""
+                        },
+                        "default_value": "",
+                        "new_lines": "",
+                        "maxlength": "",
+                        "placeholder": "",
+                        "rows": "",
+                        "parent_repeater": "field_seminars_items"
+                    },
+                    {
+                        "key": "field_seminar_date",
+                        "label": "Fecha",
+                        "name": "seminar_date_text",
+                        "aria-label": "",
+                        "type": "text",
+                        "instructions": "Ejemplo: Julio 2025 (tentativo)",
+                        "required": false,
+                        "conditional_logic": false,
+                        "wrapper": {
+                            "width": "",
+                            "class": "",
+                            "id": ""
+                        },
+                        "default_value": "",
+                        "maxlength": "",
+                        "placeholder": "",
+                        "prepend": "",
+                        "append": "",
+                        "parent_repeater": "field_seminars_items"
+                    },
+                    {
+                        "key": "field_seminar_duration",
+                        "label": "Duración",
+                        "name": "seminar_duration_text",
+                        "aria-label": "",
+                        "type": "text",
+                        "instructions": "Ejemplo: 2 horas",
+                        "required": false,
+                        "conditional_logic": false,
+                        "wrapper": {
+                            "width": "",
+                            "class": "",
+                            "id": ""
+                        },
+                        "default_value": "",
+                        "maxlength": "",
+                        "placeholder": "",
+                        "prepend": "",
+                        "append": "",
+                        "parent_repeater": "field_seminars_items"
+                    },
+                    {
+                        "key": "field_seminar_mode",
+                        "label": "Modalidad",
+                        "name": "seminar_modality_text",
+                        "aria-label": "",
+                        "type": "text",
+                        "instructions": "Ejemplo: Virtual en vivo, vía Zoom",
+                        "required": false,
+                        "conditional_logic": false,
+                        "wrapper": {
+                            "width": "",
+                            "class": "",
+                            "id": ""
+                        },
+                        "default_value": "",
+                        "maxlength": "",
+                        "placeholder": "",
+                        "prepend": "",
+                        "append": "",
+                        "parent_repeater": "field_seminars_items"
+                    },
+                    {
+                        "key": "field_seminar_certificate",
+                        "label": "Texto certificado",
+                        "name": "seminar_certificate_text",
+                        "aria-label": "",
+                        "type": "text",
+                        "instructions": "Ejemplo: Certificado incluido",
+                        "required": false,
+                        "conditional_logic": false,
+                        "wrapper": {
+                            "width": "",
+                            "class": "",
+                            "id": ""
+                        },
+                        "default_value": "",
+                        "maxlength": "",
+                        "placeholder": "",
+                        "prepend": "",
+                        "append": "",
+                        "parent_repeater": "field_seminars_items"
+                    },
+                    {
+                        "key": "field_seminar_about",
+                        "label": "Contenido 'Acerca del seminario'",
+                        "name": "seminar_about_content",
+                        "aria-label": "",
+                        "type": "wysiwyg",
+                        "instructions": "",
+                        "required": false,
+                        "conditional_logic": false,
+                        "wrapper": {
+                            "width": "",
+                            "class": "",
+                            "id": ""
+                        },
+                        "toolbar": "basic",
+                        "media_upload": 0,
+                        "tabs": "all",
+                        "default_value": "",
+                        "delay": 0,
+                        "parent_repeater": "field_seminars_items"
+                    },
+                    {
+                        "key": "field_seminar_learnings",
+                        "label": "Listado 'Lo que aprenderás'",
+                        "name": "seminar_learnings_items",
+                        "aria-label": "",
+                        "type": "repeater",
+                        "instructions": "",
+                        "required": false,
+                        "conditional_logic": false,
+                        "wrapper": {
+                            "width": "",
+                            "class": "",
+                            "id": ""
+                        },
+                        "button_label": "Agregar aprendizaje",
+                        "layout": "table",
+                        "min": 0,
+                        "max": 0,
+                        "rows_per_page": 20,
+                        "collapsed": "",
+                        "sub_fields": [
+                            {
+                                "key": "field_learning_item",
+                                "label": "Texto aprendizaje",
+                                "name": "learning_text",
+                                "aria-label": "",
+                                "type": "text",
+                                "instructions": "",
+                                "required": false,
+                                "conditional_logic": false,
+                                "wrapper": {
+                                    "width": "",
+                                    "class": "",
+                                    "id": ""
+                                },
+                                "default_value": "",
+                                "maxlength": "",
+                                "placeholder": "",
+                                "prepend": "",
+                                "append": "",
+                                "parent_repeater": "field_seminar_learnings"
+                            }
+                        ],
+                        "parent_repeater": "field_seminars_items"
+                    }
+                ]
+            }
+        ],
+        "location": [
+            [
+                {
+                    "param": "page_template",
+                    "operator": "==",
+                    "value": "page-template\/seminarios-internacionales.php"
+                }
+            ]
+        ],
+        "menu_order": 0,
+        "position": "normal",
+        "style": "default",
+        "label_placement": "top",
+        "instruction_placement": "label",
+        "hide_on_screen": "",
+        "active": true,
+        "description": "",
+        "show_in_rest": 0
+    }
+]

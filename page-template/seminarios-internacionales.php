@@ -1,6 +1,6 @@
 <?php
 /*
-    Template name: Foro de Fundadores
+    Template name: Seminarios Internacionales
 */
 get_header();
 
@@ -10,11 +10,11 @@ $hero_cta_link = get_field('hero_cta_link', $page_id);
 $hero_side_image = get_field('hero_side_image', $page_id);
 $hero_side_html = get_field('hero_side_html', $page_id);
 $hero_content_type = get_field('hero_seleccion_img_html', $page_id);
-$speakers_cards = get_field('speakers_cards', $page_id);
+$seminars_items = get_field('seminars_items', $page_id);
 
 $data = [
   'hero' => [
-    'section_class' => 'foro-fundadores-hero',
+    'section_class' => 'seminarios-hero',
     'breadcrumb_text' => get_field('hero_breadcrumb_text', $page_id),
     'badge_text' => get_field('hero_badge_text', $page_id),
     'title' => get_field('hero_title', $page_id),
@@ -24,12 +24,12 @@ $data = [
     'side_image' => is_array($hero_side_image) ? $hero_side_image : [],
     'side_html' => $hero_side_html ?: '',
   ],
-  'speakers' => [
-    'section_class' => 'foro-fundadores-speakers',
-    'eyebrow' => get_field('speakers_eyebrow', $page_id),
-    'title' => get_field('speakers_title', $page_id),
-    'description' => get_field('speakers_description', $page_id),
-    'cards' => is_array($speakers_cards) ? $speakers_cards : [],
+  'seminars' => [
+    'section_class' => 'seminarios-list-section',
+    'badge_text' => get_field('seminars_badge_text', $page_id),
+    'title' => get_field('seminars_title', $page_id),
+    'description' => get_field('seminars_description', $page_id),
+    'items' => is_array($seminars_items) ? $seminars_items : [],
   ],
 ];
 
@@ -40,11 +40,11 @@ get_template_part(
   $data['hero']
 );
 
-// Speakers destacados
+// Seminarios
 get_template_part(
-  'inc/ui/sections/speakers',
+  'inc/ui/sections/seminars',
   null,
-  $data['speakers']
+  $data['seminars']
 );
 
 get_footer();
