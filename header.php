@@ -524,6 +524,7 @@
       text-transform: uppercase;
       color: var(--primary-light);
       margin-bottom: 1.75rem;
+      font-family: var(--font-body);
     }
 
     .hero-badge::before {
@@ -1580,6 +1581,25 @@
         padding: 0.875rem 1.5rem;
         font-size: 0.75rem;
       }
+    }
+
+    .program-ver-evento {
+      font-size: 12px;
+      margin-left: auto;
+      font-family: var(--font-body);
+    }
+
+    @media (max-width: 768px) {
+      .program-ver-evento {
+        margin-left: 0;
+      }
+    }
+
+    @media (min-width: 768px) {
+      .program-ver-evento {
+        min-width: 85px;
+      }
+
     }
   </style>
 </head>

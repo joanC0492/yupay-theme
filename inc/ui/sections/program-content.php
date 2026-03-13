@@ -8,276 +8,241 @@ defined('ABSPATH') || exit;
 
 $defaults = [
   'section_class' => '',
-  'section_id' => 'foro-hero-' . wp_rand(),
-
+  'section_id' => 'program-content-' . wp_rand(),
+  // 'acerca' => [],
+  'programa_titulo' => '',
+  'razones' => [],
+  'publico_objetivo' => [],
+  // 'modal_ocultar' => false,
+  // 'modal_btn_texto' => '',
+  'programa_resultados_titulo' => '',
+  'resultados_aprendizaje' => [],
+  'competencia_titulo' => '',
+  'competencias' => [],
+  'ruta_titulo' => '',
+  'ruta_aprendizaje' => [],
+  'proyecto_aplicable' => [],
+  'docentes_titulo' => '',
+  'docentes' => [],
+  'docentes_nota' => '',
 ];
 $args = wp_parse_args($args ?? [], $defaults);
+
+$section_class = $args['section_class'];
+$section_id = $args['section_id'];
+// $acerca = is_array($args['acerca']) ? $args['acerca'] : [];
+$programa_titulo = $args['programa_titulo'];
+$razones = is_array($args['razones']) ? $args['razones'] : [];
+$publico_objetivo = is_array($args['publico_objetivo']) ? $args['publico_objetivo'] : [];
+// $modal_ocultar = $args['modal_ocultar'];
+// $modal_btn_texto = $args['modal_btn_texto'];
+$programa_resultados_titulo = $args['programa_resultados_titulo'];
+$resultados_aprendizaje = is_array($args['resultados_aprendizaje']) ? $args['resultados_aprendizaje'] : [];
+$competencia_titulo = $args['competencia_titulo'];
+$competencias = is_array($args['competencias']) ? $args['competencias'] : [];
+$ruta_titulo = $args['ruta_titulo'];
+$ruta_aprendizaje = is_array($args['ruta_aprendizaje']) ? $args['ruta_aprendizaje'] : [];
+$proyecto_aplicable = is_array($args['proyecto_aplicable']) ? $args['proyecto_aplicable'] : [];
+$docentes_titulo = $args['docentes_titulo'];
+$docentes = is_array($args['docentes']) ? $args['docentes'] : [];
+$docentes_nota = $args['docentes_nota'];
 ?>
 
-<section class="program-content">
+<section class="program-content <?= esc_attr($section_class); ?>" data-section="<?= esc_attr($section_id); ?>">
   <div class="container">
     <div class="content-grid">
       <div class="main-content">
 
-        <!-- Cursos -->
-        <div class="content-section">
-          <h2 class="section-title">Ruta de Aprendizaje</h2>
-          <div class="courses-accordion">
-            <div class="course-item">
-              <div class="course-header">
-                <span class="course-number">01</span>
-                <div class="course-title-wrap">
-                  <h4 class="course-title">Estrategia y Modelo de Negocio para crecer</h4>
-                </div>
-                <div class="course-toggle">
-                  <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
-                  </svg>
-                </div>
-              </div>
-              <div class="course-content">
-                <div class="course-body">
-                  <p class="course-description">Este curso permite al participante analizar su modelo de negocio desde
-                    una mirada estratégica, identificando brechas, oportunidades y ventajas competitivas. A través de
-                    herramientas prácticas, se construye una propuesta de valor clara y diferenciada, alineada a los
-                    objetivos del negocio. El participante define una hoja de ruta estratégica realista, orientada al
-                    crecimiento y sostenibilidad de la MYPE.</p>
-                  <div class="course-topics">
-                    <h5></h5>
-                    <h5>Temario</h5>
-                    <ul>
-                      <li>Diagnóstico estratégico de la MYPE</li>
-                      <li>Análisis del modelo de negocio</li>
-                      <li>Propuesta de valor y segmentación de clientes</li>
-                      <li>Estrategias competitivas y de crecimiento</li>
-                      <li>Definición de objetivos estratégicos</li>
-                      <li>Palancas de Crecimiento</li>
-                    </ul>
+        <?php if (!empty($ruta_aprendizaje)): ?>
+          <!-- Cursos / Ruta de Aprendizaje -->
+          <div class="content-section">
+            <?php if (!empty($ruta_titulo)): ?>
+              <h2 class="section-title"><?= esc_html($ruta_titulo); ?></h2>
+            <?php endif; ?>
+            <div class="courses-accordion">
+              <?php foreach ($ruta_aprendizaje as $modulo): ?>
+                <div class="course-item">
+                  <div class="course-header">
+                    <?php if (!empty($modulo['numero'])): ?>
+                      <span class="course-number"><?= esc_html($modulo['numero']); ?></span>
+                    <?php endif; ?>
+                    <div class="course-title-wrap">
+                      <?php if (!empty($modulo['titulo'])): ?>
+                        <h4 class="course-title"><?= esc_html($modulo['titulo']); ?></h4>
+                      <?php endif; ?>
+                    </div>
+                    <div class="course-toggle">
+                      <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+                      </svg>
+                    </div>
                   </div>
-                  <p> </p>
-                  <p><strong>Actividad práctica:</strong> Canvas de negocio, objetivos estratégicos SMART, arquetipo
-                    usuario y mapa de empatía.</p>
+                  <?php if (!empty($modulo['descripcion'])): ?>
+                    <div class="course-content">
+                      <div class="course-body">
+                        <?php
+                        $content = $modulo['descripcion'];
+                        $content = str_replace('&nbsp;', ' ', $content);
+                        $content = preg_replace('/\x{00A0}/u', ' ', $content);
+                        ?>
+                        <?= wp_kses_post($content); ?>
+                      </div>
+                    </div>
+                  <?php endif; ?>
                 </div>
-              </div>
-            </div>
-            <div class="course-item">
-              <div class="course-header">
-                <span class="course-number">02</span>
-                <div class="course-title-wrap">
-                  <h4 class="course-title">Gestión Operativa y Comercial</h4>
-                </div>
-                <div class="course-toggle">
-                  <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
-                  </svg>
-                </div>
-              </div>
-              <div class="course-content">
-                <div class="course-body">
-                  <p class="course-description">El curso aborda la gestión operativa y comercial como pilares clave para
-                    mejorar la productividad y los resultados del negocio. El participante aprende a optimizar procesos,
-                    diseñar indicadores de desempeño y fortalecer la experiencia del cliente. Asimismo, desarrolla
-                    estrategias comerciales prácticas orientadas a incrementar ventas, fidelización y control de
-                    resultados.</p>
-                  <div class="course-topics">
-                    <h5></h5>
-                    <h5>Temario</h5>
-                    <ul>
-                      <li>Gestión de procesos operativos</li>
-                      <li>Indicadores de desempeño operativo</li>
-                      <li>Experiencia del cliente y fidelización</li>
-                      <li>Estrategias comerciales para MYPES</li>
-                      <li>Seguimiento y control de resultados</li>
-                    </ul>
-                    <p> </p>
-                    <p><strong>Actividad práctica:</strong> Tablero de indicadores operativos, estrategias de
-                      fidelización y plan de ventas.</p>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="course-item">
-              <div class="course-header">
-                <span class="course-number">03</span>
-                <div class="course-title-wrap">
-                  <h4 class="course-title">Sostenibilidad e Impacto en MYPES</h4>
-                </div>
-                <div class="course-toggle">
-                  <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
-                  </svg>
-                </div>
-              </div>
-              <div class="course-content">
-                <div class="course-body">
-                  <p class="course-description">Este curso introduce la sostenibilidad como un enfoque estratégico
-                    aplicado a la realidad de la MYPE. El participante aprende a integrar criterios sociales,
-                    ambientales y económicos en la gestión del negocio, generando valor y competitividad. Se desarrollan
-                    herramientas para identificar stakeholders, medir impacto y diseñar acciones sostenibles alineadas
-                    al crecimiento empresarial.</p>
-                  <div class="course-topics">
-                    <h5></h5>
-                    <h5>Temario</h5>
-                    <ul>
-                      <li>Sostenibilidad y competitividad empresarial</li>
-                      <li>Identificación de stakeholders</li>
-                      <li>Integración de impacto social en el negocio</li>
-                      <li>Indicadores de sostenibilidad</li>
-                      <li>Casos de emprendimientos con impacto</li>
-                      <li>Contribución a los Objetivos de Desarrollo Sostenible (ODS)</li>
-                    </ul>
-                    <p><strong>Actividad práctica:</strong> Plan de sostenibilidad con indicadores básicos.</p>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="course-item">
-              <div class="course-header">
-                <span class="course-number">04</span>
-                <div class="course-title-wrap">
-                  <h4 class="course-title">Gestión Financiera para crecer</h4>
-                </div>
-                <div class="course-toggle">
-                  <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
-                  </svg>
-                </div>
-              </div>
-              <div class="course-content">
-                <div class="course-body">
-                  <p class="course-description">El curso brinda herramientas financieras clave para una adecuada toma de
-                    decisiones en la MYPE. El participante aprende a analizar costos, elaborar presupuestos y proyectar
-                    flujos de caja para asegurar la liquidez del negocio. Se fortalece la capacidad de evaluar
-                    escenarios financieros y sostener el crecimiento de manera ordenada y rentable.</p>
-                  <div class="course-topics">
-                    <h5></h5>
-                    <h5>Temario</h5>
-                    <ul>
-                      <li>Estructura de costos y márgenes</li>
-                      <li>Elaboración de presupuestos</li>
-                      <li>Estrategias de liquidez (factoring, descuentos, etc.)</li>
-                      <li>Flujo de caja y capital de trabajo</li>
-                      <li>Evaluación financiera de decisiones</li>
-                      <li>Riesgos financieros en MYPES</li>
-                      <li>Fortalecimiento de la relación de la MYPES con entidades financieras: Bancos, cajas
-                        municipales, otros</li>
-                      <li>Aspectos tributarios de la gestión financiera</li>
-                    </ul>
-                    <p> </p>
-                    <p><strong>Actividad práctica:</strong> Presupuesto y flujo de caja proyectado.</p>
-                  </div>
-                </div>
-              </div>
-            </div>
+              <?php endforeach; ?>
 
-            <!-- Proyecto -->
-            <div class="project-card">
-              <div class="project-label">Proyecto Aplicable</div>
-              <h4>Plan de Gestión y Crecimiento para MYPES</h4>
-              <div style="margin-top: 1rem;">
-                <p>El proyecto integrador consolida los aprendizajes del programa en un plan aplicable al negocio del
-                  participante. Integra diagnóstico y línea base, objetivos, estrategia de crecimiento, operaciones,
-                  comercial, sostenibilidad y finanzas en un documento ejecutivo y accionable. El participante culmina
-                  el programa con una hoja de ruta clara para implementar mejoras y sostener el crecimiento de su MYPE.
-                </p>
-              </div>
-            </div>
-            <!-- Disclaimer Plan de Estudios -->
-            <div
-              style="margin-top: 1.5rem; padding: 1.25rem; background: rgba(139, 151, 168, 0.1); border-radius: 12px; border-left: 3px solid var(--silver);">
-              <div style="font-size: 1rem; color: var(--silver); line-height: 1.7;">
-                <h6>UNW se reserva el derecho de cancelar o modificar el inicio de sus Programas por motivos de mejora
-                  continua. El dictado de clases del programa se iniciará siempre que se alcance el número mínimo de
-                  alumnos matriculados establecido por UNW.</h6>
-              </div>
+              <?php if (!empty($proyecto_aplicable)): ?>
+                <?php if (!empty($proyecto_aplicable['descripcion'])): ?>
+                  <!-- Proyecto -->
+                  <div class="project-card">
+                    <?php if (!empty($proyecto_aplicable['etiqueta'])): ?>
+                      <div class="project-label"><?= esc_html($proyecto_aplicable['etiqueta']); ?></div>
+                    <?php endif; ?>
+                    <?php if (!empty($proyecto_aplicable['titulo'])): ?>
+                      <h4><?= esc_html($proyecto_aplicable['titulo']); ?></h4>
+                    <?php endif; ?>
+                    <div style="margin-top: 1rem;">
+                      <?= wp_kses_post($proyecto_aplicable['descripcion']); ?>
+                    </div>
+                  </div>
+                <?php endif; ?>
+                <?php if (!empty($proyecto_aplicable['nota'])): ?>
+                  <!-- Disclaimer Plan de Estudios -->
+                  <div
+                    style="margin-top: 1.5rem; padding: 1.25rem; background: rgba(139, 151, 168, 0.1); border-radius: 12px; border-left: 3px solid var(--silver);">
+                    <div style="font-size: 1rem; color: var(--silver); line-height: 1.7;">
+                      <?= wp_kses_post($proyecto_aplicable['nota']); ?>
+                    </div>
+                  </div>
+                <?php endif; ?>
+              <?php endif; ?>
             </div>
           </div>
-        </div>
+        <?php endif; ?>
 
-        <!-- Por qué elegir -->
-        <div class="content-section">
-          <h2 class="section-title">¿Por qué elegir el Programa?</h2>
-          <div class="benefits-list">
-            <div class="benefit-item">
-              <div class="benefit-icon">
-                <img
-                  src="https://uwiener.btechcloud.pe/educacionejecutiva-01/wp-content/uploads/2026/02/icon-elegir-programa-01.png"
-                  alt="">
-              </div>
-              <div>
-                <p>Enfoque 100 % aplicado y orientado a resultados.</p>
-              </div>
-            </div>
-            <div class="benefit-item">
-              <div class="benefit-icon">
-                <img
-                  src="https://uwiener.btechcloud.pe/educacionejecutiva-01/wp-content/uploads/2026/02/icon-elegir-programa-02.png"
-                  alt="">
-              </div>
-              <div>
-                <p>Uso de herramientas prácticas de gestión empresarial.</p>
-              </div>
-            </div>
-            <div class="benefit-item">
-              <div class="benefit-icon">
-                <img
-                  src="https://uwiener.btechcloud.pe/educacionejecutiva-01/wp-content/uploads/2026/02/icon-elegir-programa-03.png"
-                  alt="">
-              </div>
-              <div>
-                <p>Acompañamiento y retroalimentación permanente, que garantiza el correcto desarrollo y mejora continua
-                  del proyecto.</p>
-              </div>
-            </div>
-            <div class="benefit-item">
-              <div class="benefit-icon">
-                <img
-                  src="https://uwiener.btechcloud.pe/educacionejecutiva-01/wp-content/uploads/2026/02/icon-elegir-programa-04.png"
-                  alt="">
-              </div>
-              <div>
-                <p>Proyecto integrador final, que consolida todos los aprendizajes en un documento ejecutivo, accionable
-                  y listo para ser implementado en la empresa.</p>
-              </div>
+        <?php if (!empty($razones)): ?>
+          <!-- Por qué elegir -->
+          <div class="content-section">
+            <?php if (!empty($programa_titulo)): ?>
+              <h2 class="section-title"><?= esc_html($programa_titulo); ?></h2>
+            <?php endif; ?>
+            <div class="benefits-list">
+              <?php foreach ($razones as $razon): ?>
+                <div class="benefit-item">
+                  <?php if (!empty($razon['icono'])): ?>
+                    <div class="benefit-icon">
+                      <img src="<?= esc_url($razon['icono']['url']); ?>" alt="<?= esc_attr($razon['icono']['alt'] ?? ''); ?>"
+                        loading="lazy">
+                    </div>
+                  <?php endif; ?>
+                  <?php if (!empty($razon['descripcion'])): ?>
+                    <div><?= wp_kses_post($razon['descripcion']); ?></div>
+                  <?php endif; ?>
+                </div>
+              <?php endforeach; ?>
             </div>
           </div>
-        </div>
+        <?php endif; ?>
 
-        <!-- A quién está dirigido -->
-        <div class="content-section">
-          <h2 class="section-title">
-            ¿A quién está dirigido? </h2>
-          <div class="audience-card">
-            <p>El programa está dirigido a dueños, administradores y gestores de micro y pequeñas empresas, así como a
-              profesionales en administración, contabilidad, finanzas o áreas afines que asesoran o lideran MYPES y
-              requieren fortalecer sus capacidades de gestión, planificación y toma de decisiones para lograr un
-              crecimiento ordenado, rentable y sostenible.</p>
-          </div>
-        </div>
-
-        <!-- Serás capaz de -->
-        <div class="content-section">
-          <h2 class="section-title">Serás capaz de:</h2>
-          <div class="skills-grid">
-            <div class="skill-item">
-              <p>Analizar el modelo de negocio de una MYPE para identificar oportunidades de mejora y crecimiento.</p>
-            </div>
-            <div class="skill-item">
-              <p>Aplicar herramientas de planificación estratégica adaptadas a la realidad de la micro y pequeña
-                empresa.</p>
-            </div>
-            <div class="skill-item">
-              <p>Diseñar procesos operativos y comerciales orientados a la eficiencia y la experiencia del cliente.</p>
-            </div>
-            <div class="skill-item">
-              <p>Evaluar la viabilidad financiera del negocio mediante presupuestos y proyecciones de flujo de caja.</p>
-            </div>
-            <div class="skill-item">
-              <p>Integrar criterios de sostenibilidad e impacto en la gestión empresarial para fortalecer la
-                competitividad.</p>
+        <?php if (!empty($publico_objetivo) && !empty($publico_objetivo['contenido'])): ?>
+          <!-- A quién está dirigido -->
+          <div class="content-section">
+            <?php if (!empty($publico_objetivo['titulo'])): ?>
+              <h2 class="section-title"><?= esc_html($publico_objetivo['titulo']); ?></h2>
+            <?php endif; ?>
+            <div class="audience-card">
+              <?= wp_kses_post($publico_objetivo['contenido']); ?>
             </div>
           </div>
-        </div>
+        <?php endif; ?>
+
+        <?php if (!empty($resultados_aprendizaje)): ?>
+          <!-- Serás capaz de -->
+          <div class="content-section">
+            <?php if (!empty($programa_resultados_titulo)): ?>
+              <h2 class="section-title"><?= esc_html($programa_resultados_titulo); ?></h2>
+            <?php endif; ?>
+            <div class="skills-grid">
+              <?php foreach ($resultados_aprendizaje as $resultado): ?>
+                <?php if (!empty($resultado['texto'])): ?>
+                  <div class="skill-item">
+                    <?= wp_kses_post($resultado['texto']); ?>
+                  </div>
+                <?php endif; ?>
+              <?php endforeach; ?>
+            </div>
+          </div>
+        <?php endif; ?>
+
+        <?php if (!empty($competencias)): ?>
+          <!-- Competencias -->
+          <div class="content-section">
+            <?php if (!empty($competencia_titulo)): ?>
+              <h2 class="section-title"><?= esc_html($competencia_titulo); ?></h2>
+            <?php endif; ?>
+            <div class="competencies-list">
+              <?php foreach ($competencias as $competencia): ?>
+                <?php if (!empty($competencia['texto'])): ?>
+                  <span class="competency-tag"><?= esc_html($competencia['texto']); ?></span>
+                <?php endif; ?>
+              <?php endforeach; ?>
+            </div>
+          </div>
+        <?php endif; ?>
+
+
+
+        <?php if (!empty($docentes)): ?>
+          <!-- Docentes -->
+          <div class="content-section">
+            <?php if (!empty($docentes_titulo)): ?>
+              <h2 class="section-title"><?= esc_html($docentes_titulo); ?></h2>
+            <?php endif; ?>
+            <?php foreach ($docentes as $docente_post):
+              $docente_cargo = get_field('docente_cargo', $docente_post->ID);
+              $docente_biografia = get_field('docente_resumen_profesional', $docente_post->ID);
+              $docente_linkedin = get_field('docente_linkedin', $docente_post->ID);
+              ?>
+              <div class="docente-card-programa" style="margin-bottom: 2rem;">
+                <div class="docente-header">
+                  <?php if (has_post_thumbnail($docente_post->ID)): ?>
+                    <?= get_the_post_thumbnail($docente_post->ID, 'full', ['class' => 'docente-image', 'alt' => get_the_title($docente_post->ID)]); ?>
+                  <?php endif; ?>
+                  <div class="docente-info">
+                    <h4><?= esc_html(get_the_title($docente_post->ID)); ?></h4>
+                    <?php if (!empty($docente_cargo)): ?>
+                      <p><?= esc_html($docente_cargo); ?></p>
+                    <?php endif; ?>
+                  </div>
+                </div>
+                <div class="docente-body">
+                  <?php if (!empty($docente_biografia)): ?>
+                    <?= wp_kses_post($docente_biografia); ?>
+                  <?php endif; ?>
+                  <?php if (!empty($docente_linkedin) && !empty($docente_linkedin['url'])): ?>
+                    <a href="<?= esc_url($docente_linkedin['url']); ?>" target="_blank" class="docente-linkedin">
+                      <svg fill="currentColor" viewBox="0 0 24 24">
+                        <path
+                          d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z" />
+                      </svg>
+                      <?= esc_html($docente_linkedin['title'] ?? 'Ver LinkedIn'); ?>
+                    </a>
+                  <?php endif; ?>
+                </div>
+              </div>
+            <?php endforeach; ?>
+            <?php if (!empty($docentes_nota)): ?>
+              <!-- Disclaimer Docentes -->
+              <div
+                style="margin-top: 1.5rem; padding: 1.25rem; background: rgba(139, 151, 168, 0.1); border-radius: 12px; border-left: 3px solid var(--silver);">
+                <div style="font-size: 1rem; color: var(--silver); line-height: 1.7;">
+                  <?= wp_kses_post($docentes_nota); ?>
+                </div>
+              </div>
+            <?php endif; ?>
+          </div>
+        <?php endif; ?>
 
       </div>
     </div>
@@ -1070,6 +1035,19 @@ $args = wp_parse_args($args ?? [], $defaults);
   @media (max-width: 768px) {
     .program-hero .program-hero-grid+.container {
       grid-template-columns: 1fr;
+    }
+  }
+
+  @media (min-width: 1280px) {
+    .program-content .content-grid {
+      display: flex;
+      justify-content: center;
+      max-width: 1024px;
+      margin-inline: auto;
+    }
+
+    .program-content .benefits-list {
+      max-width: 100%;
     }
   }
 </style>

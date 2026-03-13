@@ -16,6 +16,13 @@ function enqueue_base_assets(): void
   $js_path = get_template_directory() . '/public/js/main.min.js';
 
   wp_enqueue_style(
+    'theme-style',
+    get_stylesheet_directory_uri() . '/style.css',
+    [],
+    file_exists(get_stylesheet_directory() . '/style.css') ? filemtime(get_stylesheet_directory() . '/style.css') : THEME_VERSION
+  );
+
+  wp_enqueue_style(
     'main-css',
     get_template_directory_uri() . '/public/css/app.min.css',
     [],

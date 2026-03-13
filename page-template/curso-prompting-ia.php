@@ -3,6 +3,7 @@
     Template name: Curso Prompting IA
 */
 get_header();
+
 $page_id = get_queried_object_id();
 
 $hero_cta_link = get_field('hero_cta_link', $page_id);
@@ -24,9 +25,27 @@ $data = [
     'side_html' => $hero_side_html ?: '',
     'caracteristicas' => is_array($caracteristicas) ? $caracteristicas : [],
   ],
-  'program_content' => []
-]; ?>
-<?php
+  'program_content' => [
+    'section_class' => 'curso-prompting-ia-content',
+    // 'acerca' => get_field('programa_acerca', $page_id) ?: [],
+    'programa_titulo' => get_field('programa_titulo', $page_id), // ok
+    'razones' => get_field('programa_razones', $page_id) ?: [], // ok
+    'publico_objetivo' => get_field('programa_publico_objetivo', $page_id) ?: [], // ok
+    // 'modal_ocultar'              => get_field('programa_modal_ocultar', $page_id),
+    // 'modal_btn_texto'            => get_field('programa_modal_btnrequisitos_texto', $page_id),
+    'programa_resultados_titulo' => get_field('programa_resultados_titulo', $page_id), // ok
+    'resultados_aprendizaje' => get_field('programa_resultados_aprendizaje', $page_id) ?: [], // ok
+    'competencia_titulo' => get_field('programa_competencia_titulo', $page_id),
+    'competencias' => get_field('programa_competencias', $page_id) ?: [],
+    'ruta_titulo' => get_field('programa_ruta_titulo', $page_id), // ok
+    'ruta_aprendizaje' => get_field('programa_ruta_aprendizaje', $page_id) ?: [], // ok
+    'proyecto_aplicable' => get_field('programa_proyecto_aplicable', $page_id) ?: [],
+    'docentes_titulo' => get_field('programa_docentes_titulo', $page_id),
+    'docentes' => get_field('programa_docentes', $page_id) ?: [],
+    'docentes_nota' => get_field('programa_docentes_nota', $page_id),
+  ],
+];
+
 get_template_part(
   'inc/ui/sections/hero',
   null,
@@ -37,5 +56,6 @@ get_template_part(
   'inc/ui/sections/program-content',
   null,
   $data['program_content']
-); ?>
-<?php get_footer(); ?>
+);
+
+get_footer();

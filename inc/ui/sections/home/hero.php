@@ -16,11 +16,11 @@ $home_hero_cantidad_programas_texto = get_field('home_hero_cantidad_programas_te
   <div class="container">
     <div class="hero-content">
       <?php if (!empty($home_hero_etiqueta)): ?>
-        <span class="hero-badge"><?= $home_hero_etiqueta ?> </span>
+        <h1 class="hero-badge"><?= $home_hero_etiqueta ?> </h1>
       <?php endif; ?>
-      <h1 class="hero-title">
+      <h2 class="hero-title">
         <?= wp_kses($home_hero_titulo, ['strong' => [], 'em' => [], 'b' => [], 'i' => [], 'span' => ['class' => []]]) ?>
-      </h1>
+      </h2>
       <div class="hero-description">
         <?= wp_kses_post($home_hero_descripcion) ?>
       </div>
@@ -53,21 +53,15 @@ $home_hero_cantidad_programas_texto = get_field('home_hero_cantidad_programas_te
       <div class="hero-programs">
         <?php if (!empty($home_hero_beneficios)): ?>
           <?php foreach ($home_hero_beneficios as $index => $beneficio):
-            $icono = $beneficio['icono'];
-            $titulo_beneficio = $beneficio['titulo'];
-            $texto_beneficio = $beneficio['texto']; ?>
-            <a href="#" class="hero-program-item">
-              <div class="program-icon">
-                <?php if (!empty($icono)): ?>
-                  <img src="<?= $icono["url"] ?>" alt="<?= $icono["alt"] ?>">
-                <?php endif; ?>
-
-              </div>
-              <div class="program-item-content">
-                <h4><?= esc_html($titulo_beneficio) ?></h4>
-                <p><?= esc_html($texto_beneficio) ?></p>
-              </div>
-            </a>
+            $html = $beneficio['html'] ?? '';
+            $page_link = $beneficio['link'] ?? '';
+            $url = is_array($page_link) ? ($page_link['url'] ?? '') : $page_link;
+            $target = is_array($page_link) ? ($page_link['target'] ?? '_self') : '_self'; ?>
+            <?php if (!empty($url)): ?>
+              <a href="<?= esc_url($url) ?>" target="<?= esc_attr($target) ?>">
+                <?= wp_kses_post($html) ?>
+              </a>
+            <?php endif; ?>
           <?php endforeach; ?>
         <?php endif; ?>
       </div>
